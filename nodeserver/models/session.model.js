@@ -1,4 +1,5 @@
-import { Schema,model } from "mongoose";
+import mongoose from "mongoose";
+const { Schema,model } = mongoose;
 
 const sessionSchema = new Schema({
     sessionStart: {type: Number,required: true},

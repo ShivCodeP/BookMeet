@@ -30,10 +30,10 @@ loginRouter.post("", async (req, res) => {
         if (!user) {
             return res.redirect("/error")
         }
-        if(user.admin) {
-            req.session.isAdmin = true;
-        }
+        
         req.session.isAuth = true;
+        req.session.isAdmin = user.admin;
+        req.session.username = user.username;
         
         return res.redirect("/user");
 
