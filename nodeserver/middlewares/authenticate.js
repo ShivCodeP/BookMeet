@@ -2,7 +2,7 @@ const signature = process.env.SIGN || "shivam"
 
 const authenicateLogin = (req,res,next) => {
     // console.log(req.session.id)
-    if (!req.session.isauth) {
+    if (!req.session.isAuth) {
       res.redirect("/error");
     }
     else { 

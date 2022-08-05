@@ -3,12 +3,11 @@ const {Schema,model} = mongoose;
 
 const userSchema = new Schema({
     username:{type:String,required: true},
-    sessions: [{type:Schema.Types.ObjectId,ref:"session"},{strict:false}],
+    sessions: [{type:Schema.Types.ObjectId,ref:"session"}],
     admin: {type: Boolean, required: true},
 },{
     versionKey: false,
     timestamps: true,
-    strict: false
 })
 
 const Users = model("user",userSchema);
