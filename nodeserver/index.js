@@ -5,6 +5,7 @@ import connectMongo from "connect-mongodb-session";
 import router from "./controllers/user.controller.js"
 import loginRouter from "./controllers/login.controller.js";
 import sessionRouter from "./controllers/session.controller.js";
+import {router as BooksessionController} from "./controllers/booksession.controller.js"
 
 const MongoDBStore = connectMongo(session)
 let store = new MongoDBStore({
@@ -56,5 +57,6 @@ app.use(session({
 app.use("/user",router)
 app.use("/login",loginRouter);
 app.use("/session",sessionRouter);
+app.use("/booksession",BooksessionController)
 
 export default app;
