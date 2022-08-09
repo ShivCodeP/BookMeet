@@ -19,7 +19,7 @@ const googleCalendar = (req, res, next) => {
     refresh_token: req.body.refresh_token || '1//0441Vww7JFRzsCgYIARAAGAQSNwF-L9IrJcy--ymSrHu59pSePOVoU_r-B9EnkM_okCrF29OHKeDHfHCrh784q2PHFaszuM6n2bw',
   })
 
-  const { summary, description, location, sessionStart,sessionEnd, duration, slots, save, day, colorId } = req.body;
+  const { summary, description, location, sessionStart,sessionEnd, colorId } = req.body;
   // Create a new calender instance.
 
   const calendar = google.calendar({ version: 'v3', auth: oAuth2Client })

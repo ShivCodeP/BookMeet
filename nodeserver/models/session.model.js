@@ -2,7 +2,8 @@ import mongoose from "mongoose";
 const { Schema,model } = mongoose;
 
 const sessionSchema = new Schema({
-    sessionStart: {type: Number,required: true},
+    sessionStart: {type: String,required: true},
+    sessionEnd: {type: String,required: true},
     duration: {type: Number,required: true},
     slots: {type: Number,required: true},
     summary: {type: String,required: true},
