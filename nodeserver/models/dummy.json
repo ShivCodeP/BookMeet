@@ -1,0 +1,48 @@
+{
+    "ab_options": {},
+    "event": {
+        "id": 462246562,
+        "start_time": "2022-08-25T07:45:00Z",
+        "end_time": "2022-08-25T08:15:00Z",
+        "uuid": "19b910f1-2b4d-43fd-8db3-a1eda9b7934e",
+        "name": "Book One-on-One Calendly Session with IA Shivam Pandey",
+        "location": "Shivam Aditya Pandey is inviting you to a scheduled Zoom meeting.  Topic: Shivam Aditya Pandey's Personal Meeting Room  Join Zoom Meeting https:\/\/us06web.zoom.us\/j\/2857618061  Meeting ID: 285 761 8061",
+        "event_type_kind": "solo",
+        "location_additional_info": null,
+        "color": "#8247f5",
+        "guests": [],
+        "location_type": "custom",
+        "active_notification_type": "calendar",
+        "scheduled_profile": {
+            "name": "Shivam Aditya Pandey",
+            "avatar_url": "https:\/\/d3v0px0pttie1i.cloudfront.net\/uploads\/user\/avatar\/15808039\/75e1f154.png",
+            "logo_url": null,
+            "unbranded": false
+        },
+        "publishers_list": "Shivam Aditya Pandey",
+        "assigned_to": [
+            "Shivam Aditya Pandey"
+        ],
+        "uri": "https:\/\/api.calendly.com\/scheduled_events\/19b910f1-2b4d-43fd-8db3-a1eda9b7934e",
+        "cancellation_policy": null
+    },
+    "invitee": {
+        "id": 533301160,
+        "full_name": "v",
+        "email": "pshivam762@gmail.com",
+        "timezone": "Asia\/Calcutta",
+        "cancelled": false,
+        "uuid": "de435309-0970-40b4-ac33-bae62db74e29",
+        "first_name": null,
+        "last_name": null,
+        "locale": "en",
+        "time_notation": "12h",
+        "phone_number": null,
+        "gcalendar_event_url": "https:\/\/calendly.com\/invitees\/de435309-0970-40b4-ac33-bae62db74e29\/google",
+        "icalendar_event_url": "https:\/\/calendly.com\/invitees\/de435309-0970-40b4-ac33-bae62db74e29\/ics",
+        "charge": null,
+        "event_start": "2022-08-25T13:15:00+05:30",
+        "event_end": "2022-08-25T13:45:00+05:30",
+        "uri": "https:\/\/api.calendly.com\/scheduled_events\/19b910f1-2b4d-43fd-8db3-a1eda9b7934e\/invitees\/de435309-0970-40b4-ac33-bae62db74e29"
+    }
+}

@@ -1,6 +1,6 @@
 import express from "express";
 import Users from "../models/user.model.js";
-import { authenicateDev, authenicateLogin } from "../middlewares/authenticate.js";
+import { authenticateDev, authenticateLogin } from "../middlewares/authenticate.js";
 
 const {SESS_NAME = "sessionid",JWT_ACCESS_KEY="shivam"} = process.env
 const loginRouter = express.Router();
@@ -19,14 +19,10 @@ loginRouter.get("", (req, res) => {
     }
 })
 
-loginRouter.post("", async (req, res) => {
+loginRouter.post("",authenticateLogin ,async (req, res) => {
     try {
-        console.log(req.body.signature)
-        if(req.body.signature=="shivam") {
-            req.session.isAuth=true;
-            return res.redirect("/user");
-        }
         const user = await Users.findOne({ username: req.body.username }).lean().exec();
+        // console.log(user)
         if (!user) {
             return res.redirect("/error")
         }
@@ -38,11 +34,11 @@ loginRouter.post("", async (req, res) => {
         return res.redirect("/user");
 
     } catch (error) { 
-        return res.redirect("error")
+        return res.redirect("/error")
     }
 })
 
-loginRouter.post("/logout",authenicateLogin,(req,res) => {
+loginRouter.post("/logout",authenticateLogin,(req,res) => {
     req.session.destroy((error)  => {
         if (error) {
           return res.redirect("/home")

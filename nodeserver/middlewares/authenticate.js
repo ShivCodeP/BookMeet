@@ -1,18 +1,19 @@
 const signature = process.env.SIGN || "shivam"
 
-const authenicateLogin = (req,res,next) => {
+const authenticateLogin = (req,res,next) => {
     // console.log(req.session.id)
     if (!req.session.isAuth) {
-      res.redirect("/error");
+      res.redirect("/login");
     }
     else { 
       next()
     }
   }
   
-  const authenicateDev = (req,res,next) => {
+  const authenticateDev = (req,res,next) => {
     // console.log(req.session)
     if (req.body.token === signature) {
+      req.session.Dev = true;
       next();
     }
     else { 
@@ -20,4 +21,4 @@ const authenicateLogin = (req,res,next) => {
     }
   }
 
-  export {authenicateDev,authenicateLogin}
+  export {authenticateDev,authenticateLogin}

@@ -44,7 +44,7 @@ const googleCalendar = (req, res, next) => {
       timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
     },
   }
-  console.log(eventStartTime,eventEndTime);
+  // console.log(eventStartTime,eventEndTime);
   // Check if we a busy and have an event on our calendar for the same time.
   // calendar.freebusy.query(
   //   {

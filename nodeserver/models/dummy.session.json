@@ -1,0 +1,113 @@
+{
+    "invitee_publisher_error": false,
+    "today": "2022-08-24",
+    "availability_timezone": "Asia\/Calcutta",
+    "days": [
+        {
+            "date": "2022-08-24",
+            "status": "available",
+            "spots": [
+                {
+                    "status": "available",
+                    "start_time": "2022-08-24T18:00:00+05:30",
+                    "invitees_remaining": 1
+                },
+                {
+                    "status": "available",
+                    "start_time": "2022-08-24T18:30:00+05:30",
+                    "invitees_remaining": 1
+                }
+            ],
+            "invitee_events": []
+        },
+        {
+            "date": "2022-08-25",
+            "status": "available",
+            "spots": [
+                {
+                    "status": "available",
+                    "start_time": "2022-08-25T13:15:00+05:30",
+                    "invitees_remaining": 1
+                },
+                {
+                    "status": "available",
+                    "start_time": "2022-08-25T13:45:00+05:30",
+                    "invitees_remaining": 1
+                },
+                {
+                    "status": "available",
+                    "start_time": "2022-08-25T18:00:00+05:30",
+                    "invitees_remaining": 1
+                },
+                {
+                    "status": "available",
+                    "start_time": "2022-08-25T18:30:00+05:30",
+                    "invitees_remaining": 1
+                }
+            ],
+            "invitee_events": []
+        },
+        {
+            "date": "2022-08-26",
+            "status": "available",
+            "spots": [
+                {
+                    "status": "available",
+                    "start_time": "2022-08-26T13:15:00+05:30",
+                    "invitees_remaining": 1
+                },
+                {
+                    "status": "available",
+                    "start_time": "2022-08-26T13:45:00+05:30",
+                    "invitees_remaining": 1
+                },
+                {
+                    "status": "available",
+                    "start_time": "2022-08-26T18:00:00+05:30",
+                    "invitees_remaining": 1
+                },
+                {
+                    "status": "available",
+                    "start_time": "2022-08-26T18:30:00+05:30",
+                    "invitees_remaining": 1
+                }
+            ],
+            "invitee_events": []
+        },
+        {
+            "date": "2022-08-30",
+            "status": "unavailable",
+            "spots": [],
+            "invitee_events": []
+        },
+        {
+            "date": "2022-08-31",
+            "status": "unavailable",
+            "spots": [],
+            "invitee_events": []
+        }
+    ],
+    "diagnostic_data": null,
+    "current_user": {
+        "email": "shivam.aditya@masaischool.com",
+        "locale": "en",
+        "date_notation": "european_standard",
+        "time_notation": "12h",
+        "avatar_url": null,
+        "calendar_accounts": [
+            {
+                "id": 14598209,
+                "email": "shivam.aditya@masaischool.com",
+                "pull_calendar_ids": [
+                    "shivam.aditya@masaischool.com"
+                ],
+                "kind": "google"
+            }
+        ],
+        "is_pretending": false,
+        "diagnostics": {
+            "available": true,
+            "enabled": false
+        }
+    }
+}

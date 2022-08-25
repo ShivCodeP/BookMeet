@@ -1,17 +1,17 @@
 import express from "express";
 import Sessions from "../models/session.model.js";
 import Users from "../models/user.model.js";
-import { authenicateDev, authenicateLogin } from "../middlewares/authenticate.js";
+import { authenticateDev, authenticateLogin } from "../middlewares/authenticate.js";
 import googleCalendar from "../middlewares/googleCalendar.js";
 
 const sessionRouter = express.Router();
 
-sessionRouter.get("", authenicateLogin, async (req, res) => {
+sessionRouter.get("", authenticateLogin, async (req, res) => {
     try {
         const username = req.session.username;
         // console.log(username)
         if (req.query.data == "true") {
-            const session = await Users.findOne({ "username": username }).populate({ path: "sessions", populate: ["session"] }).lean().exec();
+            const session = await Sessions.find().lean().exec();
             return res.status(200).json(session);
         }
 
@@ -24,8 +24,6 @@ sessionRouter.get("", authenicateLogin, async (req, res) => {
         <input type="checkbox" name="save"/>
         <input type="text" name="sessionStart" placeholder="Start Time" />
         <input type="text" name="sessionEnd" placeholder="End Time" /> 
-        <input type="number" name="slots" placeholder="Number of slots to open" />
-        <input type="number" name="duration" placeholder="Duration of each slots" />
         <input type="number" name="colorId" placeholder="Color Code from 1 to 9" />
         <input type="submit" value="Create Session" />
         </form>`)
@@ -35,9 +33,9 @@ sessionRouter.get("", authenicateLogin, async (req, res) => {
 })
 
 // in port route there is some bugs
-sessionRouter.post("", authenicateLogin, async (req, res) => {
+sessionRouter.post("/", authenticateLogin, async (req, res) => {
     try {
-        const { summary, description, location, sessionEnd, sessionStart, duration, slots, save } = req.body;
+        const { summary, description, location, sessionEnd, sessionStart, save } = req.body;
         if (save == "on") {
             req.session.sessionDescription = req.body.description;
         }
@@ -45,17 +43,18 @@ sessionRouter.post("", authenicateLogin, async (req, res) => {
         const session = await Sessions.create({
             sessionStart: sessionStart,
             sessionEnd: sessionEnd,
-            duration: +duration,
-            slots: +slots,
             summary: summary,
             description: description,
             location: location,
-            timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone
+            timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+            status:false
         });
+        console.log(req.session.username);
         let user = await Users.findOne({username:req.session.username}).lean().exec();
+        
         if(!user) return res.redirect("/login");
         // console.log(session)
-        await Users.findOneAndUpdate({username:req.session.username},{sessions:[...user.sessions,session._id]}).lean().exec()
+        await Users.findOneAndUpdate({username:req.session.username},{available:[...user.available,session._id]}).lean().exec()
 
         return res.send(`<h1>session created</h1>`)
     } catch (error) {

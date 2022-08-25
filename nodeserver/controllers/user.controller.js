@@ -1,14 +1,14 @@
 import express from "express";
 import Users from "../models/user.model.js";
-import { authenicateDev, authenicateLogin } from "../middlewares/authenticate.js"
+import { authenticateDev, authenticateLogin } from "../middlewares/authenticate.js"
 
 const router = express.Router();
 
 router.get("", async (req, res) => {
     if (!req.session.isAuth) {
-        return res.redirect("/error")
+        return res.redirect("/login")
     }
-    // console.log(req.query.data )
+    console.log(req.session.isAdmin )
     if(req.query.data =="true" && req.session.isAdmin) {
         const users = await Users.find().lean().exec();
         return res.status(200).json(users)
@@ -17,22 +17,22 @@ router.get("", async (req, res) => {
 
     return res.status(200).send(`<form action="" method="post">
      <input type="text" name="username" />
-     <input type="checkbox" name="admin" />
      <input type="text" name="token" placeholder="signature" />
      <input type="submit" />
     </form>`)
 })
 
 // TODO: Authentication for post request ::done :: testing not done
-router.post("",authenicateDev, async (req, res) => {
+router.post("",authenticateDev, async (req, res) => {
     try {
         // console.log(req.body);
         let {username,admin} = req.body;
-        admin=="on"?admin=true: admin=false;
+        req.session.Dev?admin=true:admin=false;
         // console.log(admin);
         const user = await Users.create({
-            username:username,
-            sessions: [],
+            username,
+            available: [],
+            booked: [],
             admin: admin
         });
         return res.status(200).json(user);
